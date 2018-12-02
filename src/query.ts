@@ -53,7 +53,6 @@ export const listHealthData = () => {
         }
         `;
 
-
     return client.request<HealthListResponse>(query);
 }
 
@@ -63,7 +62,7 @@ export interface HealthDatumCreateResponse {
     }
 }
 
-export const createHealthDatum = (record: HealthRecord) => {
+export const createHealthDatum = (record: HealthRecordParameters) => {
     const query = gql`
         mutation HealthDatumCreateMutation($data: HealthDatumCreateInput!) {
             healthDatumCreate(data: $data) {
